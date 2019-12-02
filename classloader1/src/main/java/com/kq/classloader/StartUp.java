@@ -23,6 +23,8 @@ public class StartUp {
             System.out.println(mcl.getParent());
             Class<?> personClass =  mcl.findClass("com.kq.entity.Employee");
 
+            printClassLoader(personClass);
+
             Method[] methods = personClass.getDeclaredMethods();
 
 //            for(Method m : methods) {
@@ -68,6 +70,21 @@ public class StartUp {
                 e.printStackTrace();
             }
         }
+
+    }
+
+
+    private static void printClassLoader(Class clazz){
+
+
+        ClassLoader classLoader = clazz.getClassLoader();
+        System.out.println("start classLoader="+classLoader);
+        while(classLoader!=null) {
+
+            classLoader = classLoader.getParent();
+            System.out.println("classLoader="+classLoader);
+        }
+
 
     }
 
