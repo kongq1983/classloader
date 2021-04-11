@@ -30,6 +30,8 @@ import com.kq.jvm.entity.Employee;
  * java -XX:+PrintCommandLineFlags -version
  *
  *
+ * -server -XX:+PrintGC -Xms15M -Xmn15M -XX:+PrintCommandLineFlags -XX:+DoEscapeAnalysis　-XX:+EliminateAllocations -XX:+EliminateLocks
+ *
  * @author kq
  * @date 2021/4/11 15:58
  * @since 1.0.0
