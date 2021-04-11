@@ -32,6 +32,12 @@ import com.kq.jvm.entity.Employee;
  *
  * -server -XX:+PrintGC -Xms15M -Xmn15M -XX:+PrintCommandLineFlags -XX:+DoEscapeAnalysis　-XX:+EliminateAllocations -XX:+EliminateLocks
  *
+ * 命令分析
+ * jps
+ * 2809 OnStackTest
+ * 2810 Jps
+ * ➜  ~ jmap -histo 2809
+ *
  * @author kq
  * @date 2021/4/11 15:58
  * @since 1.0.0
