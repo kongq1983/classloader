@@ -11,6 +11,8 @@
     <modules>
         <module>classloader1</module>
         <module>common</module>
+        <module>memory-analysis</module>
+        <module>jvm</module>
     </modules>
 
 
