@@ -36,7 +36,9 @@ import com.kq.jvm.entity.Employee;
  * jps
  * 2809 OnStackTest
  * 2810 Jps
- * ➜  ~ jmap -histo 2809
+ * ➜  ~ jmap -histo 2809\
+ *
+ * 结论 同个module下，参数有效情况下，在栈中分配，不同module在堆中分配内存
  *
  * @author kq
  * @date 2021/4/11 15:58
@@ -65,14 +67,32 @@ public class OnStackTest {
 //        e.setId(1l);
         e.setId(1l);
         e.setName("test");
+    }
+
+    public static void alloc3(){ //栈
+        com.kq.entity.Employee2 e = new com.kq.entity.Employee2();
+//        e.setId(1l);
+        e.setId(1l);
+        e.setName("test");
+
+    }
+
+    public static void alloc4(){ // 堆
+        com.kq.entity.Employee4 e = new com.kq.entity.Employee4();
+//        e.setId(1l);
+        e.setId(1l);
+        e.setName("test");
 
     }
 
     public static void main(String[] args) {
+
         long startTime = System.currentTimeMillis();
 
         for(int i=0;i<100000000;i++) {
-            alloc1();
+//            alloc2();
+//            alloc3();
+            alloc4();
 //            alloc1();
 //            alloc1();
         }
