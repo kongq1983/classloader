@@ -1,6 +1,7 @@
 package com.kq.memory.analysis.demo;
 
 import com.kq.memory.analysis.entity.IntEntity;
+import com.kq.memory.analysis.entity.IntegerEntity;
 import com.kq.memory.analysis.entity.TwoIntEntity;
 import org.openjdk.jol.info.ClassLayout;
 
@@ -14,8 +15,11 @@ import org.openjdk.jol.info.ClassLayout;
 public class IntDemo {
 
     public static void main(String[] args) {
-        System.out.println(ClassLayout.parseInstance(new IntEntity()).toPrintable());
-        System.out.println(ClassLayout.parseInstance(new TwoIntEntity()).toPrintable());
+        // int
+        System.out.println(ClassLayout.parseInstance(new IntEntity()).toPrintable()); // 16
+        //integer
+        System.out.println(ClassLayout.parseInstance(new IntegerEntity()).toPrintable()); // 16
+        System.out.println(ClassLayout.parseInstance(new TwoIntEntity()).toPrintable()); // 16+4 +4(padding) = 24
     }
 
 }

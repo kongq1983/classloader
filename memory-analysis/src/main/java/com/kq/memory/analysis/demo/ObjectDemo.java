@@ -4,7 +4,8 @@ import org.openjdk.jol.info.ClassLayout;
 
 /**
  * ObjectDemo
- *
+ *  * -XX:+UseCompressedOops (open)
+ *  * -XX:-UseCompressedOops (close)
  * @author kq
  * @date 2021/4/10 13:59
  * @since 1.0.0

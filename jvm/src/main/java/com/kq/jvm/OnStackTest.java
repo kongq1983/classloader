@@ -40,12 +40,18 @@ import com.kq.jvm.entity.Employee;
  *
  * 结论 同个module下，参数有效情况下，在栈中分配，不同module在堆中分配内存
  *
+ * 打印虚拟机接收到的命令行参数
+ * -XX:+PrintVMOptions
+ *
+ * 打印所有的系统参数
+ * -XX:+PrintFlagsFinal
+ *
  * @author kq
  * @date 2021/4/11 15:58
  * @since 1.0.0
  */
 public class OnStackTest {
-
+    /** jvm package */
     public static void alloc(){
         Animal e = new Animal();
 //        e.setId(1l);
@@ -53,7 +59,7 @@ public class OnStackTest {
         e.setName("test");
 
     }
-
+    /** jvm package */
     public static void alloc1(){
         Employee e = new Employee();
 //        e.setId(1l);
@@ -61,14 +67,14 @@ public class OnStackTest {
         e.setName("test");
 
     }
-
+    /** commont package */
     public static void alloc2(){
         com.kq.entity.Employee1 e = new com.kq.entity.Employee1();
 //        e.setId(1l);
         e.setId(1l);
         e.setName("test");
     }
-
+    /** jvm package */
     public static void alloc3(){ //栈
         com.kq.entity.Employee2 e = new com.kq.entity.Employee2();
 //        e.setId(1l);
@@ -76,7 +82,7 @@ public class OnStackTest {
         e.setName("test");
 
     }
-
+    /** commont package */
     public static void alloc4(){ // 堆
         com.kq.entity.Employee4 e = new com.kq.entity.Employee4();
 //        e.setId(1l);
@@ -85,14 +91,20 @@ public class OnStackTest {
 
     }
 
+    /**
+     * 问题？
+     * 为什么其他jar包(commonn)，在堆里分配
+     * 自己jar在，栈里分配
+     * @param args
+     */
     public static void main(String[] args) {
 
         long startTime = System.currentTimeMillis();
 
         for(int i=0;i<100000000;i++) {
 //            alloc2();
-//            alloc3();
             alloc4();
+//            alloc3();
 //            alloc1();
 //            alloc1();
         }

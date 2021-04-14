@@ -23,7 +23,7 @@ public class LockEliminate{
             e.setName("锁消除");
         }
 
-        System.out.println(e);
+//        System.out.println(e);
 
     }
 
