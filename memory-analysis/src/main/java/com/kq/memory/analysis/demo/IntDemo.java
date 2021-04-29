@@ -2,6 +2,7 @@ package com.kq.memory.analysis.demo;
 
 import com.kq.memory.analysis.entity.IntEntity;
 import com.kq.memory.analysis.entity.IntegerEntity;
+import com.kq.memory.analysis.entity.IntegerReference;
 import com.kq.memory.analysis.entity.TwoIntEntity;
 import org.openjdk.jol.info.ClassLayout;
 
@@ -20,6 +21,7 @@ public class IntDemo {
         //integer
         System.out.println(ClassLayout.parseInstance(new IntegerEntity()).toPrintable()); // 16
         System.out.println(ClassLayout.parseInstance(new TwoIntEntity()).toPrintable()); // 16+4 +4(padding) = 24
+        System.out.println(ClassLayout.parseInstance(new IntegerReference()).toPrintable()); //
     }
 
 }

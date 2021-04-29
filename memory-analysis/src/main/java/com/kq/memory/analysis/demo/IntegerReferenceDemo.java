@@ -1,6 +1,5 @@
 package com.kq.memory.analysis.demo;
 
-import com.kq.memory.analysis.entity.IntegerEntity;
 import com.kq.memory.analysis.entity.IntegerReference;
 import org.openjdk.jol.info.ClassLayout;
 
@@ -27,23 +26,22 @@ public class IntegerReferenceDemo {
     public static void main(String[] args) {
 
         IntegerReference integerReference = new IntegerReference();
-
         // 8(mark)+4(class) +4(IntegerReference.integerEntity)
         System.out.println(ClassLayout.parseInstance(integerReference).toPrintable()); // 16 (IntegerReference.integerEntity=4)
 
-        IntegerEntity integerEntity = new IntegerEntity();
-        integerReference.setIntegerEntity(integerEntity);
+        Student student = new Student();
+        integerReference.setStudent(student);
         // 8(mark)+4(class) +4(IntegerReference.integerEntity)
         System.out.println(ClassLayout.parseInstance(integerReference).toPrintable());
 
-        integerEntity.setId(10);
+        student.setId(1L);
+        student.setName("kong");
+        student.setAge(18);
+        student.setAddress("zhejiang");
         // 8(mark)+4(class) +4(IntegerReference.integerEntity)
         System.out.println(ClassLayout.parseInstance(integerReference).toPrintable());
 
-        // 结论，默认不管对IntegerEntity赋值不赋值 都是16
-
-
-
+        // 结论，默认不管对setStudent赋值不赋值 都是4(指针压缩)
     }
 
 }

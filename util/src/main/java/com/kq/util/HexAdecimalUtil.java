@@ -87,6 +87,7 @@ public class HexAdecimalUtil {
 
 //        String str = "4c 6a 61 76 61 2f 6c 61 6e 67 2f 53 74 72 69 6e 67 3b";
         String str = "6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74";
+//        String str = "00 01 00 01 00 00 00 05 2A B7 00 01 B1 00 00  00 02 00 0B 00 00 00 06 00 01 00 00 00 08 00 0C 00 00 00 0C 00 01 00 00 00 05 00 0D 00 0E 00 00";
 
         String[] as = str.split(" ");
 

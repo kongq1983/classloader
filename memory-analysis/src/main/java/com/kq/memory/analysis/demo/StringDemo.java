@@ -13,6 +13,7 @@ public class StringDemo {
 
     public static void main(String[] args) {
         System.out.println(ClassLayout.parseInstance("abc").toPrintable());
+        System.out.println(ClassLayout.parseInstance("hello world").toPrintable());
     }
 
 //    OFF  SZ     TYPE DESCRIPTION               VALUE
